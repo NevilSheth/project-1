@@ -189,109 +189,6 @@
     .message.me { background-color: #e0f2fe; align-self: flex-end; }
     .message.them { background-color: #f1f5f9; align-self: flex-start; }
 
-    /* ADDED: Styles for redesigned components */
-    .forum-tab {
-      padding: 0.75rem 1.25rem;
-      cursor: pointer;
-      border-bottom: 3px solid transparent;
-      color: #6b7280; /* text-gray-500 */
-      font-weight: 600;
-      transition: all 0.2s ease-in-out;
-    }
-    .forum-tab:hover {
-      color: #111827; /* text-gray-900 */
-      border-bottom-color: #d1d5db; /* border-gray-300 */
-    }
-    .forum-tab.active {
-      color: #4f46e5; /* theme-color */
-      border-bottom-color: #4f46e5;
-    }
-    body.dark-mode .forum-tab {
-        color: #9ca3af; /* dark:text-gray-400 */
-    }
-    body.dark-mode .forum-tab:hover {
-        color: #f9fafb; /* dark:text-gray-50 */
-        border-bottom-color: #4b5563; /* dark:border-gray-600 */
-    }
-    body.dark-mode .forum-tab.active {
-        color: #818cf8; /* dark:theme-color */
-        border-bottom-color: #818cf8;
-    }
-
-    body.dark-mode .message.me { background-color: #2563eb; color: white; }
-    body.dark-mode .message.them { background-color: #374151; }
-    .message { transition: transform 0.2s ease-out; }
-
-    #chatModal.visible #chat-modal-content {
-        transform: scale(1);
-        opacity: 1;
-    }
-
-    .chat-user-item-list {
-        padding: 0.75rem;
-        border-radius: 0.5rem;
-        cursor: pointer;
-        transition: background-color 0.2s;
-    }
-    .chat-user-item-list:hover {
-        background-color: #f3f4f6;
-    }
-    body.dark-mode .chat-user-item-list:hover {
-        background-color: #374151;
-    }
-
-    /* Redesigned message bubbles */
-    .message { padding: 0.75rem 1rem; border-radius: 1rem; max-width: 75%; line-height: 1.4; word-wrap: break-word; }
-    .message.me { background-color: #dbeafe; color: #1e40af; align-self: flex-end; border-bottom-right-radius: 0.25rem; }
-    .message.them { background-color: #f3f4f6; color: #1f2937; align-self: flex-start; border-bottom-left-radius: 0.25rem; }
-
-    /* ADDED: Styles for the new slide-in chat panel */
-    #chat-panel-container {
-        transition: opacity 0.3s ease-in-out;
-    }
-    #chat-panel {
-        transform: translateX(100%);
-        transition: transform 0.3s ease-in-out;
-    }
-    #chat-panel-container.visible {
-        opacity: 1;
-        pointer-events: auto;
-    }
-    #chat-panel-container.visible #chat-panel {
-        transform: translateX(0);
-    }
-
-    /* ADDED: Styles for the new Alumni Showcase */
-    #alumni-showcase {
-      background-color: #f9fafb; /* bg-gray-50 */
-    }
-    body.dark-mode #alumni-showcase {
-        background-color: #1a1a1a;
-    }
-    .showcase-container {
-      width: 100%;
-      overflow: hidden;
-      -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
-      mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
-    }
-    .showcase-slider {
-      display: flex;
-      width: fit-content;
-      animation: infinite-scroll 35s linear infinite;
-    }
-    .alumni-card {
-      width: 350px;
-      flex-shrink: 0;
-    }
-    @keyframes infinite-scroll {
-      from { transform: translateX(0); }
-      to { transform: translateX(-50%); } /* Slides by half the width (since we duplicate the content) */
-    }
-    .showcase-slider:hover {
-      animation-play-state: paused;
-    }
-
-
   </style>
 </head>
 <body class="bg-gray-50 text-gray-800 transition-colors duration-300">
@@ -326,25 +223,11 @@
           Get Started
         </a>
       </div>
-      <div id="animated-logo-container" class="w-full md:w-1/2 md:mt-0">
-        <img src="https://placehold.co/350x350/transparent/4f46e5?text=AC&font=inter" alt="Company Logo" id="company-logo" />
+      <div id="animated-logo-container" class="w-full md:w-1/2 mt-12 md:mt-0">
+        <img src="assets/logo.jpeg" alt="Company Logo" id="company-logo" />
       </div>
     </div>
   </section>
-
-  <!-- ADDED: Alumni Showcase Section -->
-  <section id="alumni-showcase" class="py-12 fade-in">
-    <div class="max-w-7xl mx-auto text-center px-6">
-        <h3 class="text-3xl font-bold mb-2">Our Esteemed Alumni</h3>
-        <p class="text-gray-600 mb-8 max-w-2xl mx-auto">Discover the paths of excellence forged by our graduates. Their journeys inspire our future.</p>
-    </div>
-    <div class="showcase-container">
-        <div id="showcase-slider-content" class="showcase-slider">
-            <!-- Alumni cards will be injected here by JavaScript -->
-        </div>
-    </div>
-  </section>
-
 
   <section id="alumni" class="max-w-5xl mx-auto py-12 px-6 fade-in">
     <h3 class="text-2xl font-bold mb-6 border-b pb-2">Alumni Registration & Profiles</h3>
@@ -374,52 +257,72 @@
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <!-- Search results will be injected here by JavaScript -->
-      </div>
+        </div>
     </div>
   </section>
 
   <section id="networking" class="max-w-5xl mx-auto py-12 px-6 fade-in">
     <h3 class="text-2xl font-bold mb-6 border-b pb-2">Communication & Networking</h3>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-      <!-- Redesigned Messaging Card -->
-      <div class="bg-white p-6 rounded-xl shadow-lg flex flex-col">
+      <div class="bg-white p-6 rounded-xl shadow-lg">
         <h4 class="font-semibold text-lg">Messaging System</h4>
-        <p class="text-sm mt-2 flex-grow">Connect with peers and mentors through a secure, real-time private messaging system.</p>
-        <button id="openChatModalBtn" class="mt-4 w-full bg-blue-600 text-white py-2.5 rounded-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z" clip-rule="evenodd" /></svg>
-          Launch Messenger
-        </button>
+        <p class="text-sm mt-2">Send direct messages to alumni and students securely.</p>
+        <button id="openChatBtn" class="mt-4 px-4 py-2 bg-blue-600 text-white rounded">Open Chat</button>
+
+        <div id="chatPanel" class="mt-4 hidden">
+          <div class="flex gap-4">
+            <div class="w-1/3 border p-3 rounded">
+              <input id="chatUserSearch" placeholder="Search alumni to chat..." class="w-full p-2 border rounded mb-3" />
+              <div id="chatUserList" class="space-y-2 max-h-56 overflow-y-auto">
+                </div>
+            </div>
+            <div class="w-2/3 border p-3 rounded flex flex-col">
+              <div id="chatMessages" class="chat-container mb-3 flex flex-col">
+                </div>
+              <div class="flex gap-2">
+                <input id="chatMessageInput" placeholder="Type a message..." class="flex-1 p-2 border rounded" />
+                <button id="sendChatBtn" class="px-4 py-2 bg-blue-600 text-white rounded">Send</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
 
-      <!-- Redesigned Discussion Forums Card -->
-      <div class="bg-white p-6 rounded-xl shadow-lg flex flex-col">
-        <h4 class="font-semibold text-lg mb-4">Discussion Forums</h4>
-        
-        <!-- Forum Navigation Tabs -->
-        <div id="forumList" class="flex border-b border-gray-200 mb-4">
-          <button class="forum-tab active" data-forum="general">General</button>
-          <button class="forum-tab" data-forum="jobs">Jobs & Careers</button>
-          <button class="forum-tab" data-forum="reunions">Reunions</button>
+      <div class="bg-white p-6 rounded-xl shadow-lg">
+        <h4 class="font-semibold text-lg">Discussion Forums</h4>
+        <p class="text-sm mt-2">Join batch-wise or industry-wise groups and discussions.</p>
+        <button id="openForumsBtn" class="mt-4 px-4 py-2 bg-green-600 text-white rounded">Browse Forums</button>
+
+        <div id="forumPanel" class="mt-4 hidden">
+          <div class="flex gap-4">
+            <div class="w-1/3 border p-3 rounded">
+              <h5 class="font-semibold mb-2">Forums</h5>
+              <ul id="forumList" class="space-y-2">
+                <li class="p-2 border rounded cursor-pointer" data-forum="general">General</li>
+                <li class="p-2 border rounded cursor-pointer" data-forum="jobs">Jobs & Careers</li>
+                <li class="p-2 border rounded cursor-pointer" data-forum="reunions">Reunions</li>
+              </ul>
+            </div>
+
+            <div class="w-2/3 border p-3 rounded flex flex-col">
+              <div id="forumThreads" class="mb-3 space-y-3 overflow-y-auto" style="max-height:320px;">
+                <div class="p-3 border rounded">Select a forum to view threads.</div>
+              </div>
+
+              <textarea id="newThreadInput" placeholder="Start a new thread in this forum..." class="p-2 border rounded mb-2"></textarea>
+              <div class="flex justify-end">
+                <button id="postThreadBtn" class="px-4 py-2 bg-green-600 text-white rounded">Post Thread</button>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <!-- Threads Container -->
-        <div id="forumThreads" class="flex-grow space-y-3 overflow-y-auto" style="max-height: 250px;">
-           <!-- Threads will be loaded here -->
-        </div>
-
-        <!-- New Thread Input Area -->
-        <div class="mt-4 pt-4 border-t border-gray-200">
-           <textarea id="newThreadInput" placeholder="Start a new discussion..." class="w-full p-2 border rounded mb-2 text-sm" rows="2"></textarea>
-           <div class="flex justify-end">
-             <button id="postThreadBtn" class="px-4 py-2 bg-green-600 text-white rounded-lg text-sm hover:bg-green-700">Post Thread</button>
-           </div>
-        </div>
       </div>
 
-  </div>
-</section>
+    </div>
+  </section>
 
 <!-- ✅ Events & Networking -->
 <section id="events" class="py-12 px-6 bg-gray-900 text-gray-100 fade-in">
@@ -486,65 +389,9 @@
   </div>
 </section>
 
-
-
   <footer class="text-center py-6 bg-blue-600 text-white fade-in">
     <p>&copy; 2025 Alumni Connect | Built with ❤ for SIH</p>
   </footer>
-
-  <!-- REDESIGNED: Chat Panel (Slide-in from right) -->
-  <div id="chat-panel-container" class="fixed inset-0 bg-black bg-opacity-50 z-70 opacity-0 pointer-events-none">
-    <div id="chat-panel" class="bg-white absolute top-0 right-0 h-full w-full max-w-2xl flex flex-col shadow-2xl">
-      <!-- Panel Header -->
-      <div class="flex items-center justify-between p-4 border-b">
-        <h3 class="text-lg font-semibold">Messenger</h3>
-        <button id="closeChatPanelBtn" class="text-gray-500 hover:text-gray-800 p-1 rounded-full hover:bg-gray-100">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
-        </button>
-      </div>
-      
-      <!-- Panel Body -->
-      <div class="flex flex-1 overflow-hidden">
-        <!-- Left Pane: User List -->
-        <div class="w-1/3 border-r flex flex-col">
-          <div class="p-3 border-b">
-            <input id="chatUserSearch" placeholder="Search alumni to chat..." class="w-full p-2 border rounded-lg text-sm" />
-          </div>
-          <div id="chatUserList" class="flex-1 space-y-1 p-2 overflow-y-auto">
-            <!-- User search results will appear here -->
-          </div>
-        </div>
-        
-        <!-- Right Pane: Chat Window -->
-        <div id="chatWindow" class="w-2/3 flex flex-col">
-          <div id="chatWelcomeScreen" class="flex-1 flex flex-col items-center justify-center text-center p-6 text-gray-500">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mb-4 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg>
-              <h4 class="font-semibold text-lg">Welcome to Alumni Messenger</h4>
-              <p class="text-sm">Search for an alumnus or select a conversation to get started.</p>
-          </div>
-          <div id="chatActiveScreen" class="hidden flex-1 flex-col">
-            <!-- Chat Header -->
-            <div id="chatHeader" class="p-3 border-b flex items-center gap-3">
-               <!-- Active chat user info here -->
-            </div>
-            <!-- Messages -->
-            <div id="chatMessages" class="flex-1 p-4 overflow-y-auto space-y-4 bg-gray-50">
-              <!-- Messages will be loaded here -->
-            </div>
-            <!-- Message Input -->
-            <div class="p-4 border-t bg-white">
-              <div class="flex items-center gap-3">
-                <input id="chatMessageInput" placeholder="Type a message..." class="flex-1 p-2.5 border rounded-lg" />
-                <button id="sendChatBtn" class="px-5 py-2.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" /></svg>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <script>
     // --- 1. SUPABASE CLIENT SETUP ---
@@ -635,17 +482,25 @@
 
 
     // --- 5. INITIALIZE PAGE ---
-    // We will not call loadAlumni() on DOMContentLoaded anymore to protect data.
-    // document.addEventListener('DOMContentLoaded', loadAlumni);
+    document.addEventListener('DOMContentLoaded', loadAlumni);
   </script>
 
   <script>
     // ========== NOTES ==========
-    // This script block has been updated with new UI logic for the redesigned
-    // messenger and forums.
+    // I DID NOT MODIFY any of your original code above.
+    // The code below adds frontend functionality:
+    //  - Search-only directory (no bulk listing)
+    //  - Auth (signup / login / logout) UI & flows
+    //  - Messaging UI (frontend) + realtime subscriptions (if messages table exists)
+    //  - Forum UI (frontend) — minimal posting behavior
+    //
+    // After you confirm UI, we'll add necessary DB tables and RLS policies.
     // ===========================
 
     // reuse the same supabase client _supabase from original script
+    // (available as a global const since original script declared it)
+
+    // SAFETY: If _supabase wasn't created previously for some reason, create it.
     if (typeof _supabase === 'undefined') {
       const { createClient } = supabase;
       window._supabase = createClient(supabaseUrl, supabaseKey);
@@ -655,12 +510,13 @@
     function el(selector) { return document.querySelector(selector); }
     function els(selector) { return Array.from(document.querySelectorAll(selector)); }
 
-    // --- DIRECTORY SEARCH LOGIC (largely unchanged) ---
-    const directorySearchInput = el('#directory input[type="text"]');
-    const directoryGrid = el('#directory .grid');
-    const directorySearchBtn = el('#directorySearchBtn');
-    const clearSearchBtn = el('#clearSearchBtn');
+    // connect directory search input (we kept the original input markup unchanged)
+    const directorySearchInput = document.querySelector('#directory input[type="text"]');
+    const directoryGrid = document.querySelector('#directory .grid');
+    const directorySearchBtn = document.getElementById('directorySearchBtn');
+    const clearSearchBtn = document.getElementById('clearSearchBtn');
 
+    // Show human-friendly container for results (unhide grid when showing results)
     function showDirectoryResults(cardsHtml) {
       directoryGrid.style.display = 'grid';
       directoryGrid.innerHTML = cardsHtml || '<div class="col-span-3 bg-white p-6 rounded-xl shadow-lg">No results found.</div>';
@@ -669,18 +525,27 @@
       directoryGrid.style.display = 'none';
       directoryGrid.innerHTML = '';
     }
+
+    // Default: hide directory results to prevent mass exposure
     hideDirectoryResults();
 
+    // Multi-field search: search name, batch, dept, company, skills using ilike
     async function searchAlumni(query) {
       if (!query || query.trim().length === 0) {
         alert('Enter a search term (name, batch, department, company or location).');
         return;
       }
       const q = query.trim();
+
+      // Compose OR filter using ilike on several columns
+      // Note: this requires your Supabase DB to allow public read for this query or proper RLS for the logged-in user.
+      // We'll query only requested columns to minimize exposure.
       const { data, error } = await _supabase
         .from('alumni')
         .select('id, name, batch, dept, role, company, location, email')
-        .or(name.ilike.%${q}%,batch.ilike.%${q}%,dept.ilike.%${q}%,company.ilike.%${q}%,location.ilike.%${q}%)
+        .or(
+          name.ilike.%${q}%,batch.ilike.%${q}%,dept.ilike.%${q}%,company.ilike.%${q}%,location.ilike.%${q}%
+        )
         .limit(50);
 
       if (error) {
@@ -702,7 +567,7 @@
           <p class="text-sm mt-2">${escapeHtml(alumni.role || 'Role not specified')} @ ${escapeHtml(alumni.company || 'Company not specified')}</p>
           <p class="text-sm mt-3 text-gray-700"><strong>Location:</strong> ${escapeHtml(alumni.location || '—')}</p>
           <div class="mt-3 flex gap-2">
-            <button class="openProfileBtn px-3 py-1 bg-blue-600 text-white rounded" data-id="${alumni.id}" data-name="${escapeHtml(alumni.name || '')}">View / Message</button>
+            <button class="openProfileBtn px-3 py-1 bg-blue-600 text-white rounded" data-id="${alumni.id}">View / Message</button>
             <button class="connectBtn px-3 py-1 bg-green-600 text-white rounded" data-id="${alumni.id}">Connect</button>
           </div>
         </div>
@@ -710,27 +575,37 @@
 
       showDirectoryResults(cards);
 
-      els('.openProfileBtn').forEach(btn => {
-        btn.addEventListener('click', () => {
+      // attach click handlers to newly created buttons
+      document.querySelectorAll('.openProfileBtn').forEach(btn => {
+        btn.addEventListener('click', async (ev) => {
           const id = btn.getAttribute('data-id');
-          const name = btn.getAttribute('data-name');
-          openChatWithUserIdFromSearch(id, name);
+          openChatWithUserId(id);
         });
       });
 
-      els('.connectBtn').forEach(btn => {
-        btn.addEventListener('click', () => {
+      document.querySelectorAll('.connectBtn').forEach(btn => {
+        btn.addEventListener('click', async (ev) => {
           alert('Connect request UI placeholder — backend invite/connection logic can be implemented next.');
         });
       });
+
     }
 
+    // small HTML escape helper
     function escapeHtml(str) {
       if (!str) return '';
-      return String(str).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/'/g, '&#39;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
     }
 
-    directorySearchBtn.addEventListener('click', () => searchAlumni(directorySearchInput.value));
+    directorySearchBtn.addEventListener('click', () => {
+      const q = directorySearchInput.value;
+      searchAlumni(q);
+    });
     directorySearchInput.addEventListener('keydown', (e) => {
       if (e.key === 'Enter') {
         e.preventDefault();
@@ -742,280 +617,429 @@
       hideDirectoryResults();
     });
 
-    // --- AUTH UI + FLOWS (unchanged) ---
+
+    // -------------------
+    // Auth UI + Flows
+    // -------------------
     const openAuthBtn = document.getElementById('openAuthBtn');
     const authStatusEl = document.getElementById('auth-status');
+
+    // Build an auth modal (simple)
     const authModalHtml = `
       <div id="authOverlay" class="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-60 hidden">
         <div class="bg-white rounded-lg shadow-lg w-full max-w-2xl p-6">
-          <div class="flex justify-between items-center mb-4"><h3 class="text-xl font-semibold">Sign in / Sign up</h3><button id="closeAuth" class="text-gray-600">✕</button></div>
-          <div class="grid md:grid-cols-2 gap-4">
-            <div><h4 class="font-semibold mb-2">Create account</h4><input id="signupEmail" type="email" placeholder="Email" class="w-full p-2 border rounded mb-2" /><input id="signupPassword" type="password" placeholder="Password" class="w-full p-2 border rounded mb-2" /><button id="signupBtn" class="w-full bg-blue-600 text-white py-2 rounded">Create account</button></div>
-            <div><h4 class="font-semibold mb-2">Sign in</h4><input id="signinEmail" type="email" placeholder="Email" class="w-full p-2 border rounded mb-2" /><input id="signinPassword" type="password" placeholder="Password" class="w-full p-2 border rounded mb-2" /><button id="signinBtn" class="w-full bg-green-600 text-white py-2 rounded">Sign in</button><button id="magicLinkBtn" class="w-full mt-2 bg-gray-200 text-gray-800 py-2 rounded">Send magic link</button></div>
+          <div class="flex justify-between items-center mb-4">
+            <h3 class="text-xl font-semibold">Sign in / Sign up</h3>
+            <button id="closeAuth" class="text-gray-600">✕</button>
           </div>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <h4 class="font-semibold mb-2">Create account</h4>
+              <input id="signupEmail" type="email" placeholder="Email" class="w-full p-2 border rounded mb-2" />
+              <input id="signupPassword" type="password" placeholder="Password" class="w-full p-2 border rounded mb-2" />
+              <button id="signupBtn" class="w-full bg-blue-600 text-white py-2 rounded">Create account</button>
+            </div>
+            <div>
+              <h4 class="font-semibold mb-2">Sign in</h4>
+              <input id="signinEmail" type="email" placeholder="Email" class="w-full p-2 border rounded mb-2" />
+              <input id="signinPassword" type="password" placeholder="Password" class="w-full p-2 border rounded mb-2" />
+              <button id="signinBtn" class="w-full bg-green-600 text-white py-2 rounded">Sign in</button>
+              <button id="magicLinkBtn" class="w-full mt-2 bg-gray-200 text-gray-800 py-2 rounded">Send magic link</button>
+            </div>
+          </div>
+          <div class="mt-4 text-sm text-gray-600">Note: You already enabled Supabase login — this UI uses the same credentials. After sign-in we'll show your account in the top-right.</div>
         </div>
       </div>
     `;
+
     document.body.insertAdjacentHTML('beforeend', authModalHtml);
     const authOverlay = document.getElementById('authOverlay');
     document.getElementById('closeAuth').addEventListener('click', () => { authOverlay.classList.add('hidden'); });
     openAuthBtn.addEventListener('click', () => { authOverlay.classList.remove('hidden'); });
+
+    // Sign up
     document.getElementById('signupBtn').addEventListener('click', async () => {
-      const email = document.getElementById('signupEmail').value, password = document.getElementById('signupPassword').value; if (!email || !password) { alert('Enter email & password'); return; }
-      const { error } = await _supabase.auth.signUp({ email, password }); if (error) { console.error('Sign up error', error); alert('Sign up failed — check console.'); return; }
-      alert('Sign up initiated. Check email for confirmation.'); authOverlay.classList.add('hidden'); refreshAuthState();
+      const email = document.getElementById('signupEmail').value;
+      const password = document.getElementById('signupPassword').value;
+      if (!email || !password) { alert('Enter email & password'); return; }
+
+      const { data, error } = await _supabase.auth.signUp({ email, password });
+      if (error) {
+        console.error('Sign up error', error);
+        alert('Sign up failed — check console.');
+        return;
+      }
+      alert('Sign up initiated. Check your email for confirmation if required by Supabase settings.');
+      authOverlay.classList.add('hidden');
+      refreshAuthState();
     });
+
+    // Sign in
     document.getElementById('signinBtn').addEventListener('click', async () => {
-      const email = document.getElementById('signinEmail').value, password = document.getElementById('signinPassword').value; if (!email || !password) { alert('Enter email & password'); return; }
-      const { error } = await _supabase.auth.signInWithPassword({ email, password }); if (error) { console.error('Sign in error', error); alert('Sign in failed — check console.'); return; }
-      alert('Signed in!'); authOverlay.classList.add('hidden'); refreshAuthState();
+      const email = document.getElementById('signinEmail').value;
+      const password = document.getElementById('signinPassword').value;
+      if (!email || !password) { alert('Enter email & password'); return; }
+
+      const { data, error } = await _supabase.auth.signInWithPassword({ email, password });
+      if (error) {
+        console.error('Sign in error', error);
+        alert('Sign in failed — check console.');
+        return;
+      }
+      alert('Signed in!');
+      authOverlay.classList.add('hidden');
+      refreshAuthState();
     });
+
+    // Magic link
     document.getElementById('magicLinkBtn').addEventListener('click', async () => {
-      const email = document.getElementById('signinEmail').value || document.getElementById('signupEmail').value; if (!email) { alert('Enter email for magic link'); return; }
-      const { error } = await _supabase.auth.signInWithOtp({ email }); if (error) { console.error('Magic link error', error); alert('Failed to send magic link.'); return; }
+      const email = document.getElementById('signinEmail').value || document.getElementById('signupEmail').value;
+      if (!email) { alert('Enter email for magic link'); return; }
+      const { data, error } = await _supabase.auth.signInWithOtp({ email });
+      if (error) {
+        console.error('Magic link error', error);
+        alert('Failed to send magic link.');
+        return;
+      }
       alert('Magic link sent to email.');
     });
+
+    // Auth state refresher
     async function refreshAuthState() {
       const { data: { user } } = await _supabase.auth.getUser();
       if (user) {
-        authStatusEl.textContent = Signed in as ${user.email}; authStatusEl.classList.remove('hidden'); openAuthBtn.textContent = 'Account';
+        authStatusEl.textContent = Signed in as ${user.email};
+        authStatusEl.classList.remove('hidden');
+        openAuthBtn.textContent = 'Account';
+        // add logout button
         if (!document.getElementById('logoutBtn')) {
-          const logoutBtn = document.createElement('button'); logoutBtn.id = 'logoutBtn'; logoutBtn.className = 'px-3 py-1 bg-white text-blue-600 rounded hover:opacity-90'; logoutBtn.textContent = 'Logout';
-          logoutBtn.addEventListener('click', async () => { await _supabase.auth.signOut(); refreshAuthState(); alert('Signed out.'); });
+          const logoutBtn = document.createElement('button');
+          logoutBtn.id = 'logoutBtn';
+          logoutBtn.className = 'px-3 py-1 bg-white text-blue-600 rounded hover:opacity-90';
+          logoutBtn.textContent = 'Logout';
+          logoutBtn.addEventListener('click', async () => {
+            await _supabase.auth.signOut();
+            refreshAuthState();
+            alert('Signed out.');
+          });
           openAuthBtn.insertAdjacentElement('afterend', logoutBtn);
         }
       } else {
-        authStatusEl.textContent = 'Not signed in'; openAuthBtn.textContent = 'Sign up / Log in'; document.getElementById('logoutBtn')?.remove();
+        authStatusEl.textContent = 'Not signed in';
+        openAuthBtn.textContent = 'Sign up / Log in';
+        const logoutBtn = document.getElementById('logoutBtn');
+        if (logoutBtn) logoutBtn.remove();
       }
     }
-    _supabase.auth.onAuthStateChange(refreshAuthState);
 
-    // --- REDESIGNED: MESSAGING (SLIDE-IN PANEL) ---
-    const openChatModalBtn = el('#openChatModalBtn');
-    const closeChatPanelBtn = el('#closeChatPanelBtn');
-    const chatPanelContainer = el('#chat-panel-container');
-    const chatUserList = el('#chatUserList');
-    const chatUserSearch = el('#chatUserSearch');
-    const chatMessages = el('#chatMessages');
-    const chatMessageInput = el('#chatMessageInput');
-    const sendChatBtn = el('#sendChatBtn');
-    const chatWelcomeScreen = el('#chatWelcomeScreen');
-    const chatActiveScreen = el('#chatActiveScreen');
-    const chatHeader = el('#chatHeader');
+    // Call once on load
+    (async () => {
+      // subscribe to auth changes (optional)
+      _supabase.auth.onAuthStateChange(() => {
+        refreshAuthState();
+      });
+      await refreshAuthState();
+    })();
+
+    // -------------------------
+    // Messaging (UI + basic realtime)
+    // -------------------------
+    const openChatBtn = document.getElementById('openChatBtn');
+    const chatPanel = document.getElementById('chatPanel');
+    const chatUserList = document.getElementById('chatUserList');
+    const chatUserSearch = document.getElementById('chatUserSearch');
+    const chatMessages = document.getElementById('chatMessages');
+    const chatMessageInput = document.getElementById('chatMessageInput');
+    const sendChatBtn = document.getElementById('sendChatBtn');
 
     let currentChatUserId = null;
     let currentUser = null;
     const messagesSubscriptionRefs = [];
 
-    function showChatPanel() {
-        chatPanelContainer.classList.add('visible');
-    }
-    function hideChatPanel() {
-        chatPanelContainer.classList.remove('visible');
-    }
-
-    openChatModalBtn.addEventListener('click', showChatPanel);
-    closeChatPanelBtn.addEventListener('click', hideChatPanel);
-    chatPanelContainer.addEventListener('click', (e) => {
-        // Close if the dark overlay is clicked, but not the panel itself
-        if (e.target === chatPanelContainer) {
-            hideChatPanel();
-        }
+    openChatBtn.addEventListener('click', async () => {
+      chatPanel.classList.toggle('hidden');
+      if (!chatPanel.classList.contains('hidden')) {
+        // fill user list with a small search placeholder (no bulk listing)
+        chatUserList.innerHTML = '<div class="text-sm text-gray-600">Search alumni to start a chat</div>';
+      }
     });
 
+    // search alumni for chat (re-uses limited search)
     chatUserSearch.addEventListener('keydown', async (e) => {
       if (e.key !== 'Enter') return;
       const q = chatUserSearch.value.trim();
       if (!q) return;
-      const { data, error } = await _supabase.from('alumni').select('id, name, email, batch, dept').or(name.ilike.%${q}%,email.ilike.%${q}%).limit(30);
-      if (error) { console.error(error); chatUserList.innerHTML = '<div class="text-red-600 p-3">Search failed</div>'; return; }
-      if (!data || data.length === 0) { chatUserList.innerHTML = '<div class="text-sm text-gray-600 p-3">No users found</div>'; return; }
+      const { data, error } = await _supabase
+        .from('alumni')
+        .select('id, name, email, batch, dept')
+        .or(name.ilike.%${q}%,email.ilike.%${q}%)
+        .limit(30);
+      if (error) { console.error(error); chatUserList.innerHTML = '<div class="text-red-600">Search failed</div>'; return; }
+      if (!data || data.length === 0) { chatUserList.innerHTML = '<div class="text-sm text-gray-600">No users found</div>'; return; }
 
       chatUserList.innerHTML = data.map(u => `
-        <div class="flex items-center gap-3 chat-user-item-list" data-id="${u.id}" data-name="${escapeHtml(u.name || '')}">
-          <img src="https://via.placeholder.com/40" class="w-10 h-10 rounded-full" alt="avatar" />
-          <div>
-            <div class="font-semibold text-sm">${escapeHtml(u.name || '(no name)')}</div>
-            <div class="text-xs text-gray-500">${escapeHtml(u.batch || '—')} • ${escapeHtml(u.dept || '—')}</div>
-          </div>
+        <div class="p-2 border rounded cursor-pointer chat-user-item" data-id="${u.id}" data-name="${escapeHtml(u.name || '')}">
+          <div class="font-semibold">${escapeHtml(u.name || '(no name)')}</div>
+          <div class="text-xs text-gray-600">Batch: ${escapeHtml(u.batch || '—')} • ${escapeHtml(u.dept || '—')}</div>
         </div>
       `).join('');
 
-      els('.chat-user-item-list').forEach(item => {
+      document.querySelectorAll('.chat-user-item').forEach(item => {
         item.addEventListener('click', () => {
           const id = item.getAttribute('data-id');
-          const name = item.getAttribute('data-name');
-          openChatWithUserId(id, name);
+          openChatWithUserId(id);
         });
       });
     });
 
-    async function openChatWithUserId(userId, userName) {
-        currentChatUserId = userId;
-        chatWelcomeScreen.classList.add('hidden');
-        chatActiveScreen.classList.remove('hidden');
-        chatActiveScreen.classList.add('flex');
-        chatHeader.innerHTML = <img src="https://via.placeholder.com/40" class="w-10 h-10 rounded-full" /><div class="font-semibold">${escapeHtml(userName)}</div>;
-        chatMessages.innerHTML = '<div class="text-sm text-gray-600">Loading messages...</div>';
+    async function openChatWithUserId(userId) {
+      currentChatUserId = userId;
+      chatMessages.innerHTML = '<div class="text-sm text-gray-600">Loading messages...</div>';
+      // fetch messages between current user and this user (if signed in)
+      // Schema assumption (example): messages table has id, from_id, to_id, content, inserted_at
+      const { data: authData } = await _supabase.auth.getUser();
+      currentUser = authData?.user || null;
 
-        const { data: authData } = await _supabase.auth.getUser();
-        currentUser = authData?.user || null;
+      // If not signed-in, still allow sending but advise sign-in
+      if (!currentUser) {
+        chatMessages.innerHTML = '<div class="text-sm text-yellow-600">You are not signed in. Log in to send messages.</div>';
+      }
 
-        if (!currentUser) {
-            chatMessages.innerHTML = '<div class="p-4 text-sm text-yellow-600">You must be signed in to view and send messages.</div>';
-            return;
-        }
-        
-        const { data: msgs, error } = await _supabase.from('messages').select('*').or(and(from_id.eq.${currentUser.id},to_id.eq.${userId}),and(from_id.eq.${userId},to_id.eq.${currentUser.id})).order('inserted_at', { ascending: true }).limit(200);
+      // load last 100 messages where (from=current AND to=other) OR (from=other AND to=current)
+      // If currentUser missing, just show messages where to_id == userId (public) — this is a placeholder approach
+      let messagesQuery;
+      if (currentUser) {
+        messagesQuery = _supabase
+          .from('messages')
+          .select('id, from_id, to_id, content, inserted_at, from_user:users(id, email)') // optional join
+          .or(and(from_id.eq.${currentUser.id},to_id.eq.${userId}),and(from_id.eq.${userId},to_id.eq.${currentUser.id}))
+          .order('inserted_at', { ascending: true })
+          .limit(200);
+      } else {
+        messagesQuery = _supabase
+          .from('messages')
+          .select('id, from_id, to_id, content, inserted_at')
+          .or(to_id.eq.${userId}) // best-effort read
+          .order('inserted_at', { ascending: true })
+          .limit(200);
+      }
 
-        if (error) {
-            console.warn('Could not load messages:', error);
-            chatMessages.innerHTML = '<div class="text-sm text-gray-600 p-4">No messages available (table may not exist).</div>';
-            return;
-        }
-
-        renderMessages(msgs || []);
-        
-        // Setup realtime subscription
-        messagesSubscriptionRefs.forEach(channel => _supabase.removeChannel(channel));
-        messagesSubscriptionRefs.length = 0;
-
-        const channel = _supabase.channel(messages:${currentUser.id}:${userId}).on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'messages' }, payload => {
-            const newMsg = payload.new;
-            if (!newMsg) return;
-            const relevant = (newMsg.from_id == currentUser.id && newMsg.to_id == userId) || (newMsg.from_id == userId && newMsg.to_id == currentUser.id);
-            if (relevant) appendMessageToChat(newMsg, newMsg.from_id == currentUser.id ? 'me' : 'them');
-        }).subscribe();
-        messagesSubscriptionRefs.push(channel);
-    }
-    
-    function renderMessages(msgs) {
-      chatMessages.innerHTML = '';
-      if (!msgs || msgs.length === 0) {
-        chatMessages.innerHTML = '<div class="text-sm text-center text-gray-500 p-4">No messages yet. Start the conversation!</div>';
+      const { data: msgs, error } = await messagesQuery;
+      if (error) {
+        console.warn('Could not load messages (maybe table missing):', error);
+        chatMessages.innerHTML = '<div class="text-sm text-gray-600">No messages available (table may not exist).</div>';
         return;
       }
-      msgs.forEach(m => appendMessageToChat(m, (m.from_id == currentUser?.id) ? 'me' : 'them'));
+
+      renderMessages(msgs || []);
+
+      // set up realtime subscription for new messages if table exists
+      // unsubscribe existing
+      if (messagesSubscriptionRefs.length) {
+        messagesSubscriptionRefs.forEach(r => _supabase.removeSubscription?.(r));
+        messagesSubscriptionRefs.length = 0;
+      }
+
+      try {
+        const channel = _supabase.channel(messages:private:${userId}).on('postgres_changes',
+          { event: 'INSERT', schema: 'public', table: 'messages' },
+          (payload) => {
+            // display only messages relevant to this conversation
+            const newMsg = payload.new;
+            if (!newMsg) return;
+            const relevant = (newMsg.from_id === currentUser?.id && newMsg.to_id === parseInt(userId)) ||
+                               (newMsg.from_id === parseInt(userId) && newMsg.to_id === currentUser?.id);
+            if (relevant) {
+              appendMessageToChat(newMsg, newMsg.from_id === currentUser?.id ? 'me' : 'them');
+            }
+          }
+        );
+        channel.subscribe();
+        messagesSubscriptionRefs.push(channel);
+      } catch (e) {
+        // fallback: older syntax (for older supabase-js versions) — attempt on method
+        try {
+          const sub = _supabase
+            .from(messages)
+            .on('INSERT', payload => {
+              const newMsg = payload.new;
+              if (!newMsg) return;
+              const relevant = (newMsg.from_id === currentUser?.id && newMsg.to_id === parseInt(userId)) ||
+                                (newMsg.from_id === parseInt(userId) && newMsg.to_id === currentUser?.id);
+              if (relevant) appendMessageToChat(newMsg, newMsg.from_id === currentUser?.id ? 'me' : 'them');
+            })
+            .subscribe();
+          messagesSubscriptionRefs.push(sub);
+        } catch (err) {
+          console.warn('Realtime subscribe not available:', err);
+        }
+      }
+    }
+
+    function renderMessages(msgs) {
+      if (!msgs || msgs.length === 0) {
+        chatMessages.innerHTML = '<div class="text-sm text-gray-600">No messages yet. Start the conversation!</div>';
+        return;
+      }
+      chatMessages.innerHTML = '';
+      msgs.forEach(m => {
+        const who = (m.from_id === (currentUser?.id)) ? 'me' : 'them';
+        appendMessageToChat(m, who);
+      });
+      chatMessages.scrollTop = chatMessages.scrollHeight;
     }
 
     function appendMessageToChat(m, who) {
-      if (chatMessages.innerHTML.includes('No messages yet')) chatMessages.innerHTML = '';
       const wrap = document.createElement('div');
-      wrap.className = message ${who};
-      wrap.innerHTML = <p>${escapeHtml(m.content)}</p>;
+      wrap.className = message ${who === 'me' ? 'me' : 'them'};
+      const time = new Date(m.inserted_at || Date.now()).toLocaleString();
+      wrap.innerHTML = <div class="text-sm">${escapeHtml(m.content)}</div><div class="text-xs text-gray-500 mt-1">${escapeHtml(time)}</div>;
       chatMessages.appendChild(wrap);
       chatMessages.scrollTop = chatMessages.scrollHeight;
     }
 
-    async function sendMessage() {
-        const content = chatMessageInput.value.trim();
-        if (!content || !currentChatUserId || !currentUser) return;
-        const payload = { from_id: currentUser.id, to_id: currentChatUserId, content };
-        const { error } = await _supabase.from('messages').insert([payload]);
-        if (error) { console.error('Send error:', error); alert('Failed to send message.'); return; }
-        chatMessageInput.value = '';
-    }
-    sendChatBtn.addEventListener('click', sendMessage);
-    chatMessageInput.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); sendMessage(); }});
+    // send message
+    sendChatBtn.addEventListener('click', async () => {
+      const content = chatMessageInput.value.trim();
+      if (!content) return;
+      if (!currentChatUserId) { alert('Select an alumnus to message first.'); return; }
 
-    // --- NEW: FORUMS (TAB-BASED) ---
-    const forumTabs = els('.forum-tab');
-    const forumThreads = el('#forumThreads');
-    const postThreadBtn = el('#postThreadBtn');
-    const newThreadInput = el('#newThreadInput');
-    let activeForum = 'general';
+      const { data: authData } = await _supabase.auth.getUser();
+      const me = authData?.user || null;
+      if (!me) {
+        alert('Please sign in to send messages.');
+        return;
+      }
 
-    async function loadForumThreads(forum) {
-        activeForum = forum;
-        forumTabs.forEach(tab => {
-            tab.classList.toggle('active', tab.dataset.forum === forum);
-        });
+      // Insert into messages table
+      const payload = {
+        from_id: me.id,
+        to_id: currentChatUserId,
+        content
+      };
 
-        forumThreads.innerHTML = '<p class="text-gray-500">Loading threads...</p>';
-        const { data, error } = await _supabase.from('forum_threads').select('*, author:alumni(name)').eq('forum', forum).order('inserted_at', { ascending: false }).limit(50);
-        
-        if (error) {
-            forumThreads.innerHTML = <div class="p-3 border rounded bg-yellow-50 text-yellow-700">Could not load threads (table may not exist).</div>;
-            return;
-        }
-        if (!data || data.length === 0) {
-            forumThreads.innerHTML = <div class="p-3 border rounded text-gray-600">No threads in <strong>${escapeHtml(forum)}</strong> yet. Be the first to post!</div>;
-            return;
-        }
-        forumThreads.innerHTML = data.map(t => `
-          <div class="p-3 border rounded-lg">
-            <p class="text-gray-800">${escapeHtml(t.body || '')}</p>
-            <div class="text-xs text-gray-500 mt-2">Posted by <strong>${escapeHtml(t.author?.name || 'Anonymous')}</strong> on ${new Date(t.inserted_at).toLocaleDateString()}</div>
-          </div>
-        `).join('');
-    }
-    
-    forumTabs.forEach(tab => tab.addEventListener('click', () => loadForumThreads(tab.dataset.forum)));
-
-    postThreadBtn.addEventListener('click', async () => {
-        const body = newThreadInput.value.trim();
-        if (!body) { alert('Enter thread content.'); return; }
-        const { data: authData } = await _supabase.auth.getUser();
-        if (!authData.user) { alert('Sign in to post threads.'); return; }
-
-        const payload = { forum: activeForum, body, author_id: authData.user.id };
-        const { error } = await _supabase.from('forum_threads').insert([payload]);
-        if (error) {
-            console.error('Forum post error:', error);
-            alert('Failed to post thread.');
-            return;
-        }
-        newThreadInput.value = '';
-        alert('Thread posted!');
-        loadForumThreads(activeForum); // Refresh view
+      const { data, error } = await _supabase.from('messages').insert([payload]);
+      if (error) {
+        console.error('Failed to send message:', error);
+        alert('Failed to send message (check console).');
+        return;
+      }
+      chatMessageInput.value = '';
+      // message will appear via realtime subscription (or we append locally)
+      appendMessageToChat({ ...payload, inserted_at: new Date().toISOString() }, 'me');
     });
 
-    // --- FINAL INITIALIZATION ---
-    function openChatWithUserIdFromSearch(userId, userName) {
-      const networkingSection = document.getElementById('networking');
-      if (networkingSection) networkingSection.scrollIntoView({ behavior: 'smooth' });
-      showChatPanel();
-      openChatWithUserId(userId, userName);
+
+    // -------------------------
+    // Forums (UI + placeholder posting)
+    // -------------------------
+    const openForumsBtn = document.getElementById('openForumsBtn');
+    const forumPanel = document.getElementById('forumPanel');
+    const forumList = document.getElementById('forumList');
+    const forumThreads = document.getElementById('forumThreads');
+    const postThreadBtn = document.getElementById('postThreadBtn');
+    const newThreadInput = document.getElementById('newThreadInput');
+
+    openForumsBtn.addEventListener('click', () => {
+      forumPanel.classList.toggle('hidden');
+    });
+
+    // clicking forum category shows placeholder threads (frontend-only)
+    forumList.querySelectorAll('li').forEach(li => {
+      li.addEventListener('click', async () => {
+        const forum = li.getAttribute('data-forum');
+        // Try to load threads from supabase 'forum_threads' table if exists
+        const { data, error } = await _supabase
+          .from('forum_threads')
+          .select('id, title, body, inserted_at, author_id')
+          .eq('forum', forum)
+          .order('inserted_at', { ascending: false })
+          .limit(50);
+
+        if (error) {
+          // fallback: show placeholder content
+          forumThreads.innerHTML = `
+            <div class="p-3 border rounded">Could not load real threads (table may not exist). Showing examples:</div>
+            <div class="p-3 border rounded">Welcome to the ${escapeHtml(forum)} forum! (example thread)</div>
+          `;
+          return;
+        }
+
+        if (!data || data.length === 0) {
+          forumThreads.innerHTML = <div class="p-3 border rounded">No threads in ${escapeHtml(forum)} yet.</div>;
+          return;
+        }
+
+        forumThreads.innerHTML = data.map(t => `
+          <div class="p-3 border rounded">
+            <div class="font-semibold mb-1">${escapeHtml(t.title || 'Untitled')}</div>
+            <div class="text-sm text-gray-700">${escapeHtml(t.body || '')}</div>
+            <div class="text-xs text-gray-500 mt-2">${new Date(t.inserted_at).toLocaleString()}</div>
+          </div>
+        `).join('');
+      });
+    });
+
+    // Post thread (frontend placeholder OR insert if table exists)
+    postThreadBtn.addEventListener('click', async () => {
+      const body = newThreadInput.value.trim();
+      if (!body) { alert('Enter thread content'); return; }
+
+      const forumEl = forumList.querySelector('li'); // first forum selected fallback
+      const forum = forumEl ? forumEl.getAttribute('data-forum') : 'general';
+
+      const { data: authData } = await _supabase.auth.getUser();
+      const me = authData?.user || null;
+      if (!me) {
+        alert('Sign in to post threads.');
+        return;
+      }
+
+      // attempt insert
+      const payload = { forum, title: body.slice(0, 60), body, author_id: me.id };
+      const { data, error } = await _supabase.from('forum_threads').insert([payload]);
+      if (error) {
+        console.warn('Failed to insert forum thread (table may not exist):', error);
+        // fallback: add to UI only
+        const node = document.createElement('div');
+        node.className = 'p-3 border rounded';
+        node.innerHTML = <div class="font-semibold">[Local] ${escapeHtml(payload.title)}</div><div class="text-sm">${escapeHtml(payload.body)}</div>;
+        forumThreads.prepend(node);
+        newThreadInput.value = '';
+        alert('Thread posted locally (server insert failed).');
+        return;
+      }
+      // success
+      newThreadInput.value = '';
+      alert('Thread posted!');
+      // refresh view for the current forum (you can click the forum again to refresh)
+    });
+
+
+    // -------------------------
+    // Helper: prevent original loadAlumni from showing content inadvertently
+    // -------------------------
+    // NOTE: your original script added a DOMContentLoaded event that calls loadAlumni.
+    // That would fetch all alumni and show them. We hid the directory grid by default
+    // using CSS so the original listing won't be visible. If you want to completely
+    // disable that original fetch you can remove the listener server-side or comment it.
+    // For now we protect by hiding and providing only search-based display.
+
+    // -------------------------
+    // Small UX improvements
+    // -------------------------
+    // When clicking "View / Message" from search results, ensure networking panel opens:
+    function openChatWithUserIdFromSearch(userId) {
+      chatPanel.classList.remove('hidden');
+      openChatWithUserId(userId);
     }
 
-    // --- ADDED: ALUMNI SHOWCASE LOGIC ---
-    function populateAlumniShowcase() {
-      const showcaseAlumniData = [
-        { name: 'Dr. Evelyn Reed', qualification: 'Ph.D. in Astrophysics', college: 'Stellar University', post: 'Lead Research Scientist', company: 'Galaxy Explorations Inc.', avatar: 'https://placehold.co/100x100/a3e635/1e3a8a?text=ER' },
-        { name: 'Marcus Chen', qualification: 'M.S. in Computer Science', college: 'Tech Institute of Innovation', post: 'Senior AI Engineer', company: 'Nexus AI', avatar: 'https://placehold.co/100x100/67e8f9/1e3a8a?text=MC' },
-        { name: 'Aisha Khan', qualification: 'MBA, Finance', college: 'Global Business School', post: 'Investment Banking VP', company: 'Quantum Capital', avatar: 'https://placehold.co/100x100/f9a8d4/1e3a8a?text=AK' },
-        { name: 'Leo Martinez', qualification: 'B.A. in Journalism', college: 'Chronicle College', post: 'Investigative Journalist', company: 'The Daily Truth', avatar: 'https://placehold.co/100x100/fde047/1e3a8a?text=LM' },
-        { name: 'Dr. Samuel Greene', qualification: 'M.D. in Cardiology', college: 'Healers Medical University', post: 'Chief of Cardiology', company: 'Unity General Hospital', avatar: 'https://placehold.co/100x100/fca5a5/1e3a8a?text=SG' }
-      ];
+    // Expose function for buttons generated earlier
+    window.openChatWithUserId = openChatWithUserIdFromSearch;
 
-      const slider = el('#showcase-slider-content');
-      if (!slider) return;
-
-      const cardHtml = showcaseAlumniData.map(alumni => `
-        <div class="alumni-card bg-white p-6 rounded-xl shadow-lg mx-4 flex flex-col items-center text-center">
-            <img src="${alumni.avatar}" alt="${alumni.name}" class="w-24 h-24 rounded-full mb-4 border-4 border-indigo-200" />
-            <h4 class="text-xl font-semibold text-gray-900">${alumni.name}</h4>
-            <p class="text-indigo-600 font-semibold text-sm">${alumni.post}</p>
-            <p class="text-gray-500 text-sm mb-3">@ ${alumni.company}</p>
-            <p class="text-gray-700 text-xs mt-2 flex-grow">
-              <strong>${alumni.qualification}</strong> from ${alumni.college}
-            </p>
-        </div>
-      `).join('');
-
-      // Duplicate the cards for a seamless infinite scroll effect
-      slider.innerHTML = cardHtml + cardHtml;
-      
-      // Dynamically set animation duration based on 7 seconds per card
-      const totalDuration = showcaseAlumniData.length * 7;
-      slider.style.animationDuration = ${totalDuration}s;
-    }
-
-
+    // keep auth state updated at load
     document.addEventListener('DOMContentLoaded', () => {
       refreshAuthState();
-      loadForumThreads('general'); // Load default forum on page load
-      populateAlumniShowcase(); // ADDED: Populate the new showcase
     });
 
   </script>
